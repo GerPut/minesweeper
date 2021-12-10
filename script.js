@@ -140,7 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function gameOver(square) {
-        console.log("boom")
+        const message = document.getElementById('result')
+        message.innerHTML = "You Lose!"
         isGameOver = true
         squares.forEach(square => {
             if (square.classList.contains('bomb')) {
@@ -157,7 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 matches++
             }
             if (matches === bombAmount) {
-                console.log(" You Win!")
+                const message = document.getElementById('result')
+                message.innerHTML = "You Won! <i class=far fa-smile-beam></i>"
                 isGameOver = true
             }
         }
