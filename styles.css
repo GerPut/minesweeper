@@ -21,7 +21,9 @@ body {
     width: 400px;
     display: flex;
     flex-wrap: wrap;
-    background-color: grey;
+    background-color: #dcd6bc;
+    margin-top: 20px;
+    border: 10px solid #dcd6bc;
 }
 
 .grid div {
@@ -29,10 +31,50 @@ body {
     width: 40px;
 }
 
-.bomb {
-    background-color: red;
+.checked {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+    background-color: #cecab7;
+    border-color: #9c998d;
+    box-sizing: border-box;
 }
 
-.checked {
-    background-color: green;
+.bomb {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+    background-color: rgb(247, 95, 95);
+    border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
+    box-sizing: border-box;
+}
+
+.valid {
+    height: 40px;
+    width: 40px;
+    border: 5px solid;
+    border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
+    box-sizing: border-box;
+}
+
+.one {
+    color: blue;
+}
+
+.two {
+    color: green;
+}
+
+.three {
+    color: red;
+}
+
+.four {
+    color: #1429A9;
 }
