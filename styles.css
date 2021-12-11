@@ -36,6 +36,10 @@ body {
     width: 40px;
 }
 
+.grid div:hover {
+    cursor: pointer;
+}
+
 .checked {
     height: 40px;
     width: 40px;
@@ -54,10 +58,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid;
-    background-color: #F56DDB;
+    border: 5px solid;
     border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
     box-sizing: border-box;
+}
+
+.flag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .fas.fa-bomb {
@@ -86,4 +95,18 @@ body {
 
 .four {
     color: #1429A9;
+}
+
+.restart {
+    height: 60px;
+    width: 140px;
+    border: 5px solid;
+    border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+}
+
+.restart:hover {
+    cursor: pointer;
 }
