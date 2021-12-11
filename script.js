@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector(".grid")
+
     let width = 10
     let bombAmount = 20
     let squares = []
@@ -51,17 +52,20 @@ document.addEventListener('DOMContentLoaded', () => {
     createBoard()
 
     function addFlag(square) {
+        const flagsLeft = document.querySelector('#flags-left')
         if (isGameOver) return
         if (!square.classList.contains('checked') && (flags < bombAmount)) {
             if (!square.classList.contains('flag')) {
                 square.classList.add('flag')
                 square.innerHTML = '<i class="fas fa-flag"></i>'
                 flags++
+                flagsLeft.innerHTML = bombAmount - flags
                 checkForWin()
             } else {
                 square.classList.remove('flag')
                 square.innerHTML = ''
                 flags--
+                flagsLeft.innerHTML = bombAmount - flags
             }
         }
     }
@@ -76,6 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
             let total = square.getAttribute('data')
             if (total != 0) {
                 square.classList.add('checked')
+                if (total == 1) square.classList.add('one')
+                if (total == 2) square.classList.add('two')
+                if (total == 3) square.classList.add('three')
+                if (total == 4) square.classList.add('four')
                 square.innerHTML = total
                 return
             }
@@ -141,11 +149,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function gameOver(square) {
         const message = document.getElementById('result')
-        message.innerHTML = "You Lose!"
+        message.innerHTML = "YOU LOSE!"
         isGameOver = true
         squares.forEach(square => {
             if (square.classList.contains('bomb')) {
                 square.innerHTML = '<i class="fas fa-bomb"></i>'
+                square.classList.remove('bomb')
+                square.classList.add('checked')
             }
         })
     }
@@ -159,9 +169,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             if (matches === bombAmount) {
                 const message = document.getElementById('result')
-                message.innerHTML = "You Won! <i class=far fa-smile-beam></i>"
+                message.innerHTML = "YOU WIN!"
                 isGameOver = true
             }
         }
     }
 })
+
+const button = document.querySelector('.restart')
+
+button.addEventListener('click', refreshGame)
+
+function refreshGame() {
+    return location.reload()
+}
